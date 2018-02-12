@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e483c0bf-0687-4e48-8ac8-8d3d5f2df6d4" activeEnvironment="Default" name="WebService1" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="99f3e31d-17af-4417-8ee2-dffe17b24f8f" wsaVersion="NONE" name="WebService1Soap12" type="wsdl" bindingName="{http://tempuri.org/}WebService1Soap12" soapVersion="1_2" anonymous="optional" definition="http://localhost:50861/WebServis/WebService1.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:50861/WebServis/WebService1.asmx</con:endpoint></con:endpoints><con:operation id="83427f00-ce8f-4107-b47b-66d9a192f0fe" isOneWay="false" action="http://tempuri.org/OgrenciDondur" name="OgrenciDondur" bindingOperationName="OgrenciDondur" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="67c73a25-a1ea-41f1-94f8-927e71627b81" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:50861/WebServis/WebService1.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:OgrenciDondur>\r
+         <tem:Id>?</tem:Id>\r
+      </tem:OgrenciDondur>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/WebService1Soap/OgrenciDondurRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="740f7069-28f2-44a8-ac86-9de9d45990f2" wsaVersion="NONE" name="WebService1Soap" type="wsdl" bindingName="{http://tempuri.org/}WebService1Soap" soapVersion="1_1" anonymous="optional" definition="http://localhost:50861/WebServis/WebService1.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:50861/WebServis/WebService1.asmx?WSDL"><con:part><con:url>http://localhost:50861/WebServis/WebService1.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="OgrenciDondur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OgrenciDondurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OgrenciDondurResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema"/>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="OgrenciDondurSoapIn">
+    <wsdl:part name="parameters" element="tns:OgrenciDondur"/>
+  </wsdl:message>
+  <wsdl:message name="OgrenciDondurSoapOut">
+    <wsdl:part name="parameters" element="tns:OgrenciDondurResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="OgrenciDondur">
+      <wsdl:input message="tns:OgrenciDondurSoapIn"/>
+      <wsdl:output message="tns:OgrenciDondurSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="OgrenciDondur">
+      <soap:operation soapAction="http://tempuri.org/OgrenciDondur" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="OgrenciDondur">
+      <soap12:operation soapAction="http://tempuri.org/OgrenciDondur" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:50861/WebServis/WebService1.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:50861/WebServis/WebService1.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:50861/WebServis/WebService1.asmx</con:endpoint></con:endpoints><con:operation id="3611549a-ab98-470d-be85-e2b0a8269a95" isOneWay="false" action="http://tempuri.org/OgrenciDondur" name="OgrenciDondur" bindingOperationName="OgrenciDondur" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f93a680b-6b8a-4027-bbd3-188bbe4a4e88" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:50861/WebServis/WebService1.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:OgrenciDondur>\r
+         <tem:Id>7</tem:Id>\r
+      </tem:OgrenciDondur>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/OgrenciDondur"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
